@@ -7,3 +7,11 @@ jspm_packages
 
 # Webpack directories
 .webpack
+
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+.cache/
+# Build directory
+public/
+.DS_Store
+yarn-error.log
