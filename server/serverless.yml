@@ -16,15 +16,19 @@ plugins:
 provider:
   name: aws
   runtime: nodejs10.x
+  region: ap-northeast-1
   apiGateway:
     minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 functions:
-  hello:
-    handler: handler.hello
+  line:
+    handler: src/schedule.regist
+    memorySize: 128
+    timeout: 900
     events:
       - http:
-          method: get
-          path: hello
+          method: post
+          path: schedule/regist
+          cors: true
