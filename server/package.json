@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "serverless-dotenv-plugin": "^2.1.1",
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-offline": "^5.12.1",
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {

@@ -10,3 +10,23 @@ export const regist: APIGatewayProxyHandler = async (event, _context) => {
     }, null, 2),
   };
 }
+
+export const update: APIGatewayProxyHandler = async (event, _context) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Go Serverless Webpack (Typescript) v1.0! Your function executed successfully!',
+      input: event,
+    }, null, 2),
+  };
+}
+
+export const remove: APIGatewayProxyHandler = async (event, _context) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Go Serverless Webpack (Typescript) v1.0! Your function executed successfully!',
+      input: event,
+    }, null, 2),
+  };
+}
