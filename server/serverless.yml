@@ -26,46 +26,54 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 functions:
-  schedule_regist:
-    handler: src/schedule.regist
+  app:
+    handler: app.handler
     memorySize: 128
     timeout: 900
     events:
-      - http:
-          method: post
-          path: schedule/regist
-          cors: true
+      - http: ANY /
+      - http: ANY /{proxy+}
 
-  schedule_update:
-    handler: src/schedule.update
-    memorySize: 128
-    timeout: 900
-    events:
-      - http:
-          method: post
-          path: schedule/update
-          cors: true
+#  schedule_regist:
+#    handler: src/schedule.regist
+#    memorySize: 128
+#    timeout: 900
+#    events:
+#      - http:
+#          method: post
+#          path: schedule/regist
+#          cors: true
 
-  schedule_delete:
-    handler: src/schedule.remove
-    memorySize: 128
-    timeout: 900
-    events:
-      - http:
-          method: post
-          path: schedule/remove
-          cors: true
+#  schedule_update:
+#    handler: src/schedule.update
+#    memorySize: 128
+#    timeout: 900
+#    events:
+#      - http:
+#          method: post
+#          path: schedule/update
+#          cors: true
 
-  notify:
-    handler: src/notify.routine
-    memorySize: 128
-    timeout: 900
-    events:
-      - schedule:
-          rate: rate(1 minutes)
-          enabled: true
-          input:
-            key1: value1
-            key2: value2
-            stageParams:
-              stage: dev
+#  schedule_delete:
+#    handler: src/schedule.remove
+#    memorySize: 128
+#    timeout: 900
+#    events:
+#      - http:
+#          method: post
+#          path: schedule/remove
+#          cors: true
+
+#  notify:
+#    handler: src/notify.routine
+#    memorySize: 128
+#    timeout: 900
+#    events:
+#      - schedule:
+#          rate: rate(1 minutes)
+#          enabled: true
+#          input:
+#            key1: value1
+#            key2: value2
+#            stageParams:
+#              stage: dev
