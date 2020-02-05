@@ -13,8 +13,10 @@ custom:
     include:
       - TWITTER_CONSUMER_KEY
       - TWITTER_CONSUMER_SECRET
-      - TWITTER_BOT_ACCESS_TOKEN
-      - TWITTER_BOT_ACCESS_TOKEN_SECRET
+      - LINE_CHANNEL_ACCESSTOKEN
+      - LINE_CHANNEL_ID
+      - LINE_CHANNEL_SECRET
+      - LINE_NOTIFY_TOKEN
 
 # Add the serverless-webpack plugin
 plugins:
