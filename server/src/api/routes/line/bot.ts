@@ -22,7 +22,7 @@ lineBotRouter.post('/message', line.middleware(config), (req: Request, res: Resp
   .then((result) => res.json(result))
   .catch((err) => {
     console.error(err);
-    res.status(500).end();
+    res.status(200).end();
   });
 });
 
