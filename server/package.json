@@ -23,7 +23,6 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.40",
     "@types/aws-serverless-express": "^3.3.3",
-    "@types/axios": "^0.14.0",
     "@types/node": "^10.12.18",
     "cors": "^2.8.5",
     "fork-ts-checker-webpack-plugin": "^3.0.1",

@@ -5,7 +5,8 @@ import * as awsServerlessExpress from 'aws-serverless-express';
 import * as express from 'express';
 
 import { twitterRouter } from './api/routes/twitter';
-import { lineRouter } from './api/routes/line';
+import { lineBotRouter } from './api/routes/line/bot';
+import { lineNotifyRouter } from './api/routes/line/notify';
 
 const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
@@ -35,7 +36,8 @@ passport.use(new TwitterStrategy({
 app.use(cors({ origin: true }));
 
 app.use('/twitter', twitterRouter);
-app.use('/line', lineRouter);
+app.use('/line/bot', lineBotRouter);
+app.use('/line/notify', lineNotifyRouter);
 
 app.get('/', (req, res) => {
   res.json({ hello: 'world' });
