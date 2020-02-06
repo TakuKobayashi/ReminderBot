@@ -48,7 +48,7 @@ lineNotifyRouter.get('/notify', async (req: Request, res: Response, next: NextFu
 
   const response = await axios.post(LINE_NOTIFY_BASE_URL + "/api/notify", messages, {
     headers: {
-      "Authorization": 'Bearer '+ process.env.LINE_NOTIFY_TOKEN,
+      "Authorization": 'Bearer ',
     }
   }).catch(err => {
     console.log(err);

@@ -4,7 +4,7 @@ import { APIGatewayEvent, APIGatewayProxyHandler, Context } from 'aws-lambda';
 import * as awsServerlessExpress from 'aws-serverless-express';
 import * as express from 'express';
 
-import { twitterRouter } from './api/routes/twitter';
+import { twitterRouter } from './api/routes/twitter/account';
 import { lineBotRouter } from './api/routes/line/bot';
 import { lineNotifyRouter } from './api/routes/line/notify';
 
@@ -32,7 +32,7 @@ passport.use(new TwitterStrategy({
 
 app.use(cors({ origin: true }));
 
-app.use('/twitter', twitterRouter);
+app.use('/twitter/acount', twitterRouter);
 app.use('/line/bot', lineBotRouter);
 app.use('/line/notify', lineNotifyRouter);
 
