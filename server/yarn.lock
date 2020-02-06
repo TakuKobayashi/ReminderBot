@@ -797,6 +797,21 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+aws-sdk@^2.480.0:
+  version "2.612.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.612.0.tgz#3af06638ec785bad10986b81ce265422fca552e3"
+  integrity sha512-/oAeVw9okULGczQLNMAO3/w9sA2ubf/+iqRQRXRjrJXVUi7INV6qYnNzIXzy7GabOkN7xpZiTbVcU+Yij5yrxg==
+  dependencies:
+    buffer "4.9.1"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
 aws-sdk@^2.7.0:
   version "2.611.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.611.0.tgz#b1da3bc62740347201b1fa53b7009b306b1627de"
@@ -3818,6 +3833,13 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+
+node-dynamodb-orm@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/node-dynamodb-orm/-/node-dynamodb-orm-0.1.3.tgz#834b37c99ab8f024c8f939ee0ecb36b3b143e291"
+  integrity sha512-QYlELmuWLDq0Pb5B3Gyl6aezNPy+DDWU/KYNnEkm9SmSu5BXj+v6Odvtdb5udfQxbCb91OXDEHipvjEvpQXawg==
+  dependencies:
+    aws-sdk "^2.480.0"
 
 node-environment-flags@1.0.5:
   version "1.0.5"
