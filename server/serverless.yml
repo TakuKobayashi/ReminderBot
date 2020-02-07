@@ -4,10 +4,41 @@ service:
 #app: your-app-name
 #org: your-org-name
 
+resources:
+  Resources:
+    usersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: accounts
+        AttributeDefinitions:
+          - AttributeName: account_type
+            AttributeType: S
+          - AttributeName: uid
+            AttributeType: S
+        KeySchema:
+          - AttributeName: account_type
+            KeyType: HASH
+          - AttributeName: uid
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+  dynamodb:
+  # If you only want to use DynamoDB Local in some stages, declare them here
+    stages:
+      - dev
+    start:
+      port: 8010
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      convertEmptyValues: true
+      migrate: true
   dotenv:
     path: ./.env
     include:
@@ -25,6 +56,8 @@ custom:
       - DISCORD_CLIENT_BOT_ACCESSTOKEN
       - FACEBOOK_APP_ID
       - FACEBOOK_APP_SECRET
+      - region
+      - endpoint
 
 # Add the serverless-webpack plugin
 plugins:
