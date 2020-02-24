@@ -4,7 +4,7 @@ import { APIGatewayEvent, APIGatewayProxyHandler, Context } from 'aws-lambda';
 import * as awsServerlessExpress from 'aws-serverless-express';
 import * as express from 'express';
 
-import { twitterRouter } from './api/routes/twitter/account';
+import { twitterAccountRouter } from './api/routes/twitter/account';
 import { lineBotRouter } from './api/routes/line/bot';
 import { lineNotifyRouter } from './api/routes/line/notify';
 
@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(cors({ origin: true }));
 
-app.use('/twitter/acount', twitterRouter);
+app.use('/twitter/account', twitterAccountRouter);
 app.use('/line/bot', lineBotRouter);
 app.use('/line/notify', lineNotifyRouter);
 
