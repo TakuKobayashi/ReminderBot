@@ -5,6 +5,7 @@ import * as awsServerlessExpress from 'aws-serverless-express';
 import * as express from 'express';
 
 import { twitterAccountRouter } from './api/routes/twitter/account';
+import { twitterCommunicateRouter } from './api/routes/twitter/communicate';
 import { lineBotRouter } from './api/routes/line/bot';
 import { lineNotifyRouter } from './api/routes/line/notify';
 
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use(cors({ origin: true }));
 
 app.use('/twitter/account', twitterAccountRouter);
+app.use('/twitter/communicate', twitterCommunicateRouter);
 app.use('/line/bot', lineBotRouter);
 app.use('/line/notify', lineNotifyRouter);
 
