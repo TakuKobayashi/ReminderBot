@@ -4,10 +4,10 @@ import { APIGatewayEvent, APIGatewayProxyHandler, Context } from 'aws-lambda';
 import * as awsServerlessExpress from 'aws-serverless-express';
 import * as express from 'express';
 
-import { twitterAccountRouter } from './api/routes/twitter/account';
-import { twitterCommunicateRouter } from './api/routes/twitter/communicate';
-import { lineBotRouter } from './api/routes/line/bot';
-import { lineNotifyRouter } from './api/routes/line/notify';
+import { twitterAccountRouter } from './routes/twitter/account';
+import { twitterCommunicateRouter } from './routes/twitter/communicate';
+import { lineBotRouter } from './routes/line/bot';
+import { lineNotifyRouter } from './routes/line/notify';
 
 const app = express();
 const server = awsServerlessExpress.createServer(app);

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
+import { setupTwit } from '../../common/twitter';
 
 const crypto = require('crypto');
 const express = require('express');
@@ -14,6 +15,7 @@ twitterAccountRouter.get('/', (req: Request, res: Response, next: NextFunction) 
 });
 
 twitterAccountRouter.get('/auth', async (req: Request, res: Response, next: NextFunction) => {
+  /*
   const origin = req.query.origin;
   if (origin) {
     res.cookie('redirectorigin', origin);
@@ -22,6 +24,7 @@ twitterAccountRouter.get('/auth', async (req: Request, res: Response, next: Next
     res.json({ message: 'origin query is invalid.' });
     return;
   }
+  */
   const params = requestTokenTwitterParams();
   const signatureString = signature(encodeURIComponent(sortJoinParamsString(params, '&')));
   params.oauth_signature = encodeURIComponent(signatureString);
@@ -44,10 +47,10 @@ twitterAccountRouter.get('/callback', async (req: Request, res: Response, next: 
     next(err);
   });
   const accessTokenData = querystring.parse(response.data);
-  const cookies = req.cookies;
-  res.cookie('twitterUserId', accessTokenData.user_id);
-  res.cookie('twitterScreenName', accessTokenData.screen_name);
-  res.clearCookie('redirectorigin');
+  //const cookies = req.cookies;
+  //res.cookie('twitterUserId', accessTokenData.user_id);
+  //res.cookie('twitterScreenName', accessTokenData.screen_name);
+  //res.clearCookie('redirectorigin');
   //{"oauth_token":"...","oauth_token_secret":"...","user_id":"...","screen_name":"..."}
   const twitter = setupTwit({ access_token: accessTokenData.oauth_token, access_token_secret: accessTokenData.oauth_token_secret });
   const twitterUserResponse = await twitter.get('users/show', { user_id: accessTokenData.user_id });
@@ -66,7 +69,7 @@ twitterAccountRouter.get('/callback', async (req: Request, res: Response, next: 
     profile_image_url: twitterUser.profile_image_url_https,
   };
 */
-  res.redirect(cookies.redirectorigin);
+  res.json({accessTokenData, twitterUser});
 });
 
 twitterAccountRouter.get('/callback', async (req: Request, res: Response, next: NextFunction) => {
