@@ -16,7 +16,7 @@
     "chrono-node": "^1.4.4",
     "cookie-parser": "^1.4.4",
     "crypto": "^1.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "facebook-chat-api": "^1.7.0",
     "firebase": "^7.12.0",
     "form-data": "^3.0.0",
